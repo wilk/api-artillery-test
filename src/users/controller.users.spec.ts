@@ -53,7 +53,7 @@ describe("Users API", () => {
     it("returns the list of users", async () => {
       const res = await request(app)
         .get("/api/users")
-        .set("authorization", authToken);
+        .set("authorization", `Bearer ${authToken}`);
 
       expect(res.status).toBe(200);
       expect(res.body).toHaveLength(3);

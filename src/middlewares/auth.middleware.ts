@@ -13,7 +13,8 @@ export const authMiddleware = (jwtSecret: string) => {
 
     let payload: JWTPayload;
     try {
-      const token = req.headers.authorization;
+      const tokenHeader = req.headers.authorization;
+      const token = tokenHeader.replace("Bearer ", "");
       payload = jwt.verify(token, jwtSecret) as JWTPayload;
     } catch (err) {
       logger.error(err, "Problem when decoding the JWT");

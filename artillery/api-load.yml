@@ -19,4 +19,6 @@ scenarios:
   - name: "Getting data"
     flow:
       - get:
-          url: "/"
+          url: "/api/users"
+          headers:
+            authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3OGQ4MmE1NC03ZmFmLTQzZTgtODkwZi00MTFjMjFjZmI0N2IiLCJ0aWVyIjoicHJlbWl1bSIsImlhdCI6MTY3NTM0MTkyM30.isui_Xn8kGmnRzguFBYyMlF8RMRiLNhlfkyTbEx5K0Q"

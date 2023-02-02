@@ -1,4 +1,5 @@
 import { PromisedDatabase } from "promised-sqlite3";
+import config from "./config";
 
 export class Database {
   private db: PromisedDatabase;
@@ -34,4 +35,7 @@ export class Database {
   }
 }
 
-export const db = Database.make("db.sqlite");
+export const db = Database.make(`data/${
+  config.NODE_ENV === "test" ? config.DB_URL_TEST : config.DB_URL
+}
+  `);

@@ -13,10 +13,10 @@ describe("Auth Middleware", () => {
   };
   const signedUpRequest = {
     headers: {
-      authorization: serviceAuth.createToken({
+      authorization: `Bearer ${serviceAuth.createToken({
         sub: signedUpUser.id,
         tier: signedUpUser.tier,
-      }),
+      })}`,
     },
   };
   const nextSpy = jest.fn();

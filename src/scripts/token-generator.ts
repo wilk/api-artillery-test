@@ -1,21 +1,24 @@
 import pino from "pino";
-import { PromisedDatabase } from "promised-sqlite3";
-import jwt from "jsonwebtoken";
+import { db } from "../utils/db";
+import { ServiceAuth } from "../auth/service.auth";
 
 const logger = pino({ name: "token-generator" });
 
-const db = new PromisedDatabase();
+const authService = ServiceAuth.make();
 
 async function generateTokens() {
   try {
-    await db.open("db.sqlite");
+    await db.init();
 
-    const users = await db.all("SELECT id, tier FROM users");
-
-    db.close();
+    const users = await db.findAll("SELECT id, tier FROM users");
+    for (const user of users) {
+      const token = authService.createToken({ sub: user.id, tier: user.tier });
+      logger.info({ id: user.id, token });
+    }
   } catch (err) {
     logger.error(err, "Error happened when seeding the db");
-    throw err;
+  } finally {
+    await db.close();
   }
 }
 

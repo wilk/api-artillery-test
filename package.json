@@ -8,7 +8,10 @@
     "test": "jest",
     "test:api:load": "artillery run artillery/api-load.yml",
     "db:seed": "ts-node src/scripts/db-seed",
-    "db:migrate": "ts-node src/scripts/db-migrate"
+    "db:migrate": "pnpm db:migrate:local && pnpm db:migrate:test",
+    "db:migrate:local": "ts-node src/scripts/db-migrate",
+    "db:migrate:test": "NODE_ENV=test ts-node src/scripts/db-migrate",
+    "generate-token": "ts-node src/scripts/token-generator"
   },
   "keywords": [],
   "author": "",
