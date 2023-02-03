@@ -21,4 +21,4 @@ scenarios:
       - get:
           url: "/api/users"
           headers:
-            authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3OGQ4MmE1NC03ZmFmLTQzZTgtODkwZi00MTFjMjFjZmI0N2IiLCJ0aWVyIjoicHJlbWl1bSIsImlhdCI6MTY3NTM0MTkyM30.isui_Xn8kGmnRzguFBYyMlF8RMRiLNhlfkyTbEx5K0Q"
+            authorization: "Bearer REPLACE_ME_WITH_A_REAL_TOKEN"

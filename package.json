@@ -11,7 +11,7 @@
     "db:migrate": "pnpm db:migrate:local && pnpm db:migrate:test",
     "db:migrate:local": "ts-node src/scripts/db-migrate",
     "db:migrate:test": "NODE_ENV=test ts-node src/scripts/db-migrate",
-    "generate-token": "ts-node src/scripts/token-generator"
+    "generate-tokens": "ts-node src/scripts/token-generator"
   },
   "keywords": [],
   "author": "",

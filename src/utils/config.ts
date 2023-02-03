@@ -15,4 +15,5 @@ export default {
   NODE_ENV: process.env.NODE_ENV,
   DB_URL: String(process.env.DB_URL),
   DB_URL_TEST: String(process.env.DB_URL_TEST),
+  PORT: Number(process.env.PORT) || 4000,
 };
